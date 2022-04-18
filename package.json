@@ -1,0 +1,46 @@
+{
+  "name": "solid-hope-admin",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint-staged": "lint-staged",
+    "pre": "prettier --write ./src/**/**.{js,jsx,tsx,ts,css}",
+    "prepare": "husky install",
+    "serve": "vite preview"
+  },
+  "lint-staged": {
+    "*.{js,jsx,css}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ],
+    "package.json": "npx sort-package-json"
+  },
+  "dependencies": {
+    "@hope-ui/solid": "^0.4.2",
+    "@steeze-ui/heroicons": "^1.1.1",
+    "@steeze-ui/remix-icons": "^1.0.0",
+    "@steeze-ui/solid-icon": "^1.0.0",
+    "@stitches/core": "^1.2.7",
+    "query-string": "^7.1.1",
+    "solid-app-router": "^0.3.2",
+    "solid-js": "^1.3.15",
+    "solid-transition-group": "^0.0.10"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.2.1",
+    "commitlint": "^16.2.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
+    "prettier": "^2.6.2",
+    "sort-package-json": "^1.55.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.5",
+    "vite-plugin-pages": "^0.23.0",
+    "vite-plugin-solid": "^2.2.6"
+  }
+}

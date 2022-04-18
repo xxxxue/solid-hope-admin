@@ -1,0 +1,84 @@
+.collapse {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+}
+
+.collapseTitle,
+.collapse > input[type="checkbox"],
+.collapseContent {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+/* 初始化 input */
+.collapse > input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+}
+
+/* hover 变色 */
+.collapse > input[type="checkbox"]:hover + .collapseTitle {
+  color: #1890ff;
+}
+
+.collapseContent {
+  grid-row-start: 2;
+  overflow: hidden;
+  max-height: 0px;
+  cursor: unset;
+  /* 收起时的过渡 */
+  /* transition: max-height 1s ease-in-out; */
+}
+
+/* 展开内容区域  */
+.collapse:focus .collapseContent,
+.collapse input[type="checkbox"]:checked ~ .collapseContent {
+  /* 控制展开后的高度 */
+  max-height: fit-content;
+}
+
+/* 展开 内容区域 */
+.collapse:focus :where(.collapseContent),
+.collapse:where(input[type="checkbox"]:checked ~ .collapseContent) {
+  /* 展开内容区域时生效过渡效果 */
+  /* transition: max-height 0.1s ease-in-out; */
+}
+
+/* 设置箭头图标 */
+.collapseArrow .collapseTitle:after {
+  position: absolute;
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  transition-property: transform;
+  transition-duration: 100ms;
+  top: 1.4rem;
+  right: 1.4rem;
+  content: "";
+  transform-origin: 75% 75%;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px;
+  pointer-events: none;
+}
+
+/* 设置鼠标样式 */
+.collapse input[type="checkbox"],
+.collapse .collapseTitle {
+  cursor: pointer;
+}
+
+/* 设置头部样式 */
+.collapseTitle,
+.collapse > input[type="checkbox"] {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* 旋转箭头图标 */
+.collapseArrow:focus .collapseTitle:after,
+.collapseArrow input[type="checkbox"]:checked ~ .collapseTitle:after {
+  transform: rotate(225deg);
+}
